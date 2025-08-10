@@ -12,7 +12,19 @@ function agregarAmigo() {
       // se agrega el nombre al array de amigos
       amigos.push(nombre);
       console.log(amigos);
+      actualizarListaAmigos(); // llamar a la función para actualizar la lista
    }
    // se limpia el campo de texto
    document.getElementById('amigo').value = '';
+}
+
+// función para actualizar la lista de amigos
+function actualizarListaAmigos() {
+   let lista = document.getElementById('listaAmigos');
+   lista.innerHTML = '';
+   for (let i = 0; i < amigos.length; i++) {
+      let li = document.createElement('li');
+      li.textContent = amigos[i];
+      lista.appendChild(li);
+   }
 }
